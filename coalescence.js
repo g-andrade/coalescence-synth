@@ -15,7 +15,8 @@ function intervalBetweenFreqs(freq1, freq2) {
 
 var NMAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11];
 //var NMINOR_SCALE = [0, 2, 3, 5, 7, 8, 10];
-var DHARMONIC_SCALE = [0, 1, 4, 5, 7, 8, 11];
+//var DHARMONIC_SCALE = [0, 1, 4, 5, 7, 8, 11];
+var PSEUDOINDIAN_22_SCALE = [0.0, 0.5455, 1.091, 1.6364999999999998, 2.182, 2.7275, 3.2729999999999997, 3.8185, 4.364, 4.9094999999999995, 5.455, 6.0005, 6.545999999999999, 7.0915, 7.637, 8.1825, 8.728, 9.2735, 9.818999999999999, 10.3645, 10.91, 11.455499999999999];
 var SILLY_SCALE = [0];
 for (var i = 0; i < 5; i++) {
     var n = SILLY_SCALE[SILLY_SCALE.length - 1];
@@ -220,7 +221,7 @@ function getParamsForPosition(x, y) {
         baseColor = [138, 43, 226];
     }
     else {
-        var scale = (quadrant === 1 ? NMAJOR_SCALE : (quadrant === 0 ? SILLY_SCALE : DHARMONIC_SCALE));
+        var scale = (quadrant === 1 ? NMAJOR_SCALE : (quadrant === 0 ? SILLY_SCALE : PSEUDOINDIAN_22_SCALE));
         var scaleIdx1 = Math.floor(quadrantX * (1 + (scale.length * 1)));
         var scaleIdx2 = Math.floor(quadrantY * (1 + scale.length));
         interval1 = scale[scaleIdx1 % scale.length] + (12 * Math.floor((scaleIdx1 / scale.length)));
